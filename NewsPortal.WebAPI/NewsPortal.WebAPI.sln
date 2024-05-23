@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal.WebAPI", "NewsPortal.WebAPI\NewsPortal.WebAPI.csproj", "{D34D4CCE-2517-4D4A-B872-46D7F755B40F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal.Models", "NewsPortal.Models\NewsPortal.Models.csproj", "{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D34D4CCE-2517-4D4A-B872-46D7F755B40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D34D4CCE-2517-4D4A-B872-46D7F755B40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D34D4CCE-2517-4D4A-B872-46D7F755B40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D34D4CCE-2517-4D4A-B872-46D7F755B40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00C8730A-EADD-4263-B2A7-439B50A40F52}
+	EndGlobalSection
+EndGlobal
