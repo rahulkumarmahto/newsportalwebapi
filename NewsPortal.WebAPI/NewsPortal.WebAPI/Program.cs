@@ -33,6 +33,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapNewsArticleEndpoints();
-
 app.Run();

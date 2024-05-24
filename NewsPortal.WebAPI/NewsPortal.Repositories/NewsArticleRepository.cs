@@ -8,7 +8,7 @@ namespace NewsPortal.Repositories
     {
         private readonly NewsPortalWebAPIContext context;
 
-        protected NewsArticleRepository(NewsPortalWebAPIContext context) : base(context)
+        public NewsArticleRepository(NewsPortalWebAPIContext context) : base(context)
         {
             this.context = context;
         }
