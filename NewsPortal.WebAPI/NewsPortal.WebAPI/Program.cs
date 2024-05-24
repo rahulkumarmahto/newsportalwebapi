@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using NewsPortal.WebAPI.Data;
+using NewsPortal.WebAPI.Controllers;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<NewsPortalWebAPIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("NewsPortalWebAPIContext") ?? throw new InvalidOperationException("Connection string 'NewsPortalWebAPIContext' not found.")));
 
 // Add services to the container.
 
@@ -21,5 +27,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapNewsArticleEndpoints();
 
 app.Run();
