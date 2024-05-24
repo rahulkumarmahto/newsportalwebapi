@@ -19,6 +19,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NewsPortal.Models\NewsPortal.Models.csproj" />
+    <ProjectReference Include="..\NewsPortal.Repositories\NewsPortal.Repositories.csproj" />
+    <ProjectReference Include="..\NewsPortal.Services\NewsPortal.Services.csproj" />
   </ItemGroup>
 
 </Project>

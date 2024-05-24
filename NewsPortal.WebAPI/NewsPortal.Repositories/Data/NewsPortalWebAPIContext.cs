@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NewsPortal.Models;
 
-namespace NewsPortal.WebAPI.Data
+namespace NewsPortal.Repositories.Data
 {
     public class NewsPortalWebAPIContext : DbContext
     {
-        public NewsPortalWebAPIContext (DbContextOptions<NewsPortalWebAPIContext> options)
+        public NewsPortalWebAPIContext(DbContextOptions<NewsPortalWebAPIContext> options)
             : base(options)
         {
         }

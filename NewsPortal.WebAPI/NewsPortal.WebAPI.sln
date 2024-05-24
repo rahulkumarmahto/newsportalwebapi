@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal.WebAPI", "NewsPo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal.Models", "NewsPortal.Models\NewsPortal.Models.csproj", "{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal.Services", "NewsPortal.Services\NewsPortal.Services.csproj", "{754237A9-D139-4BC4-8D88-6C4E814F3DC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal.Repositories", "NewsPortal.Repositories\NewsPortal.Repositories.csproj", "{A5062046-FD01-420D-B636-514442398795}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A4D8658-8454-4C9C-9AAC-742FB73DF9B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{754237A9-D139-4BC4-8D88-6C4E814F3DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{754237A9-D139-4BC4-8D88-6C4E814F3DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{754237A9-D139-4BC4-8D88-6C4E814F3DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{754237A9-D139-4BC4-8D88-6C4E814F3DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5062046-FD01-420D-B636-514442398795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5062046-FD01-420D-B636-514442398795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5062046-FD01-420D-B636-514442398795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5062046-FD01-420D-B636-514442398795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NewsPortal.Models\NewsPortal.Models.csproj" />
+    <ProjectReference Include="..\NewsPortal.Repositories\NewsPortal.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

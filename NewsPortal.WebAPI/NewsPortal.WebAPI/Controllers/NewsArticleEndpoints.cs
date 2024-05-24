@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OpenApi;
 using NewsPortal.Models;
-using NewsPortal.WebAPI.Data;
+using NewsPortal.Repositories.Data;
 namespace NewsPortal.WebAPI.Controllers;
 
 public static class NewsArticleEndpoints
