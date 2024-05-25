@@ -74,5 +74,16 @@ namespace NewsPortal.WebAPI.Controllers
             await newsArticleService.DeleteByIdAsync(id);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("GetByQueryParameters")]
+        public async Task<IActionResult> GetByQueryParametersAsync([FromQuery] QueryParameters queryParameters)
+        {
+            if (queryParameters is null)
+                throw new ArgumentNullException(nameof(queryParameters));
+
+            var result = await this.newsArticleService.GetByQueryParametersAsync(queryParameters);
+            return Ok(result);
+        }
     }
 }

@@ -12,4 +12,11 @@
         public DateTime? ModifiedDatetime { get; set; }
 
     }
+
+    public class NewsArticleResponse : NewsArticle
+    {
+        public string NewsCategoryName { get; set; }
+    }
+
+
 }

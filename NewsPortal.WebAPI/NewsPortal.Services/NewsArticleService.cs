@@ -5,11 +5,12 @@ namespace NewsPortal.Services
 {
     public interface INewsArticleService
     {
-        Task<NewsArticle> GetByIdAsync(int id);
+        Task<NewsArticleResponse> GetByIdAsync(int id);
         Task AddAsync(NewsArticle request);
         Task UpdateAsync(NewsArticle request);
         Task DeleteByIdAsync(int id);
-        Task<List<NewsArticle>> GetAsync();
+        Task<List<NewsArticleResponse>> GetAsync();
+        Task<PagedData<NewsArticleResponse>> GetByQueryParametersAsync(QueryParameters queryParameters);
     }
 
     public class NewsArticleService : INewsArticleService
@@ -31,14 +32,19 @@ namespace NewsPortal.Services
             await this.newsArticleRepository.DeleteByIdAsync(id).ConfigureAwait(false);
         }
 
-        public async Task<List<NewsArticle>> GetAsync()
+        public async Task<List<NewsArticleResponse>> GetAsync()
         {
            return await this.newsArticleRepository.GetAsync().ConfigureAwait(false);
         }
 
-        public async Task<NewsArticle> GetByIdAsync(int id)
+        public async Task<NewsArticleResponse> GetByIdAsync(int id)
         {
             return await this.newsArticleRepository.GetByIdAsync(id).ConfigureAwait(false);
+        }
+
+        public async Task<PagedData<NewsArticleResponse>> GetByQueryParametersAsync(QueryParameters queryParameters)
+        {
+            return await this.newsArticleRepository.GetByQueryParametersAsync(queryParameters).ConfigureAwait(false);
         }
 
         public async Task UpdateAsync(NewsArticle request)
