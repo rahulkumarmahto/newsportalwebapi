@@ -7,9 +7,9 @@
         public required string Description { get; set; }
         public int NewsCategoryId { get; set; }
         public required string CreatedBy { get; set; }
-        public DateTime CreatedDatetime { get; set; }
+        public DateTime CreatedDateTime { get; set; }
         public string? ModifiedBy { get; set; }
-        public DateTime? ModifiedDatetime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
 
     }
 

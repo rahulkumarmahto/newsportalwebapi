@@ -19,12 +19,12 @@ namespace NewsPortal.Repositories
             var entity = context.NewsArticle.Join(context.NewsCategory, a => a.NewsCategoryId, c => c.Id, (a, c) => new NewsArticleResponse()
             {
                 CreatedBy = a.CreatedBy,
-                CreatedDatetime = a.CreatedDatetime,
+                CreatedDateTime = a.CreatedDateTime,
                 Description = a.Description,
                 Id = a.Id,
                 ModifiedBy = a.ModifiedBy,
                 Title = a.Title,
-                ModifiedDatetime = a.ModifiedDatetime,
+                ModifiedDateTime = a.ModifiedDateTime,
                 NewsCategoryId = a.NewsCategoryId,
                 NewsCategoryName = c.Name,
             });
@@ -37,12 +37,12 @@ namespace NewsPortal.Repositories
             var entity = await context.NewsArticle.Join(context.NewsCategory, a => a.NewsCategoryId, c => c.Id, (a, c) => new NewsArticleResponse()
             {
                 CreatedBy = a.CreatedBy,
-                CreatedDatetime = a.CreatedDatetime,
+                CreatedDateTime = a.CreatedDateTime,
                 Description = a.Description,
                 Id = a.Id,
                 ModifiedBy = a.ModifiedBy,
                 Title = a.Title,
-                ModifiedDatetime = a.ModifiedDatetime,
+                ModifiedDateTime = a.ModifiedDateTime,
                 NewsCategoryId = a.NewsCategoryId,
                 NewsCategoryName = c.Name,
             }).FirstOrDefaultAsync(x => x.Id == id);
@@ -76,12 +76,12 @@ namespace NewsPortal.Repositories
             var data = await context.NewsArticle.Join(context.NewsCategory, a => a.NewsCategoryId, c => c.Id, (a, c) => new NewsArticleResponse()
             {
                 CreatedBy = a.CreatedBy,
-                CreatedDatetime = a.CreatedDatetime,
+                CreatedDateTime = a.CreatedDateTime,
                 Description = a.Description,
                 Id = a.Id,
                 ModifiedBy = a.ModifiedBy,
                 Title = a.Title,
-                ModifiedDatetime = a.ModifiedDatetime,
+                ModifiedDateTime = a.ModifiedDateTime,
                 NewsCategoryId = a.NewsCategoryId,
                 NewsCategoryName = c.Name,
             })
@@ -91,7 +91,7 @@ namespace NewsPortal.Repositories
                 || x.NewsCategoryName.Contains(queryParameters.SearchText))
             .Skip(queryParameters.PageSize * (queryParameters.PageIndex - 1))
             .Take(queryParameters.PageSize)
-            .OrderByDescending(x => x.CreatedDatetime)
+            .OrderByDescending(x => x.CreatedDateTime)
             .ToListAsync();
 
             int totalRecordCount = await context.NewsArticle.CountAsync().ConfigureAwait(false);
