@@ -28,7 +28,7 @@ namespace NewsPortal.Repositories
                 NewsCategoryName = c.Name,
             });
 
-            return await entity.ToListAsync();
+            return await entity.ToListAsync().ConfigureAwait(false);
         }
 
         public async Task<NewsArticleResponse> GetByIdAsync(int id)
@@ -44,30 +44,30 @@ namespace NewsPortal.Repositories
                 ModifiedDateTime = a.ModifiedDateTime,
                 NewsCategoryId = a.NewsCategoryId,
                 NewsCategoryName = c.Name,
-            }).FirstOrDefaultAsync(x => x.Id == id);
+            }).FirstOrDefaultAsync(x => x.Id == id).ConfigureAwait(false);
 
             return entity;
         }
         public async Task AddAsync(NewsArticle request)
         {
             await context.NewsArticle.AddAsync(request).ConfigureAwait(false);
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync().ConfigureAwait(false);
         }
         public async Task UpdateAsync(NewsArticle request)
         {
             context.Entry(request).State = EntityState.Modified;
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync().ConfigureAwait(false);
         }
 
         public async Task DeleteByIdAsync(int id)
         {
-            var entity = await context.NewsArticle.FindAsync(id);
+            var entity = await context.NewsArticle.FindAsync(id).ConfigureAwait(false);
 
             if (entity == null)
                 return;
 
             context.NewsArticle.Remove(entity);
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync().ConfigureAwait(false);
         }
 
         public async Task<PagedData<NewsArticleResponse>> GetByQueryParametersAsync(QueryParameters queryParameters)
@@ -91,7 +91,7 @@ namespace NewsPortal.Repositories
             .Skip(queryParameters.PageSize * (queryParameters.PageIndex - 1))
             .Take(queryParameters.PageSize)
             .OrderByDescending(x => x.CreatedDateTime)
-            .ToListAsync();
+            .ToListAsync().ConfigureAwait(false);
 
             int totalRecordCount = await context.NewsArticle.CountAsync().ConfigureAwait(false);
             int matchingRecordCount = data.Count;
