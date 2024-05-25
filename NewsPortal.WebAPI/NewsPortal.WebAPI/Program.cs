@@ -9,8 +9,11 @@ builder.Services.AddDbContext<NewsPortalWebAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("NewsPortalWebAPIContext") ?? throw new InvalidOperationException("Connection string 'NewsPortalWebAPIContext' not found.")));
 
 // Add services to the container.
-builder.Services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
 
+builder.Services.AddScoped<INewsCategoryRepository, NewsCategoryRepository>();
+builder.Services.AddScoped<INewsCategoryService, NewsCategoryService>();
+
+builder.Services.AddScoped<INewsArticleRepository, NewsArticleRepository>();
 builder.Services.AddScoped<INewsArticleService, NewsArticleService>();
 
 builder.Services.AddControllers();

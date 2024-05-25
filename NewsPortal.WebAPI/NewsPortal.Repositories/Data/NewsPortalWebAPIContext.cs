@@ -15,5 +15,6 @@ namespace NewsPortal.Repositories.Data
         }
 
         public DbSet<NewsPortal.Models.NewsArticle> NewsArticle { get; set; } = default!;
+        public DbSet<NewsPortal.Models.NewsCategory> NewsCategory { get; set; } = default!;
     }
 }

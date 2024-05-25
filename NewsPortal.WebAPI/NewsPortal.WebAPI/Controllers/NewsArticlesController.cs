@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NewsPortal.Models;
-using NewsPortal.Repositories.Data;
 using NewsPortal.Services;
 
 namespace NewsPortal.WebAPI.Controllers
@@ -10,57 +8,70 @@ namespace NewsPortal.WebAPI.Controllers
     [ApiController]
     public class NewsArticlesController : ControllerBase
     {
-        private readonly INewsArticleService _context;
+        private readonly INewsArticleService newsArticleService;
 
-        public NewsArticlesController(INewsArticleService context)
+        public NewsArticlesController(INewsArticleService newsArticleService)
         {
-            _context = context;
+            this.newsArticleService = newsArticleService;
         }
 
-
         [HttpGet]
-        [Route("GetNewsArticle/{id}")]
-        public async Task<ActionResult<NewsArticle>> GetNewsArticle(int id)
+        [Route("Get")]
+        public async Task<IActionResult> GetAdync()
         {
-            var newsArticle = await _context.GetByIdAsync(id);
+            var newsArticle = await newsArticleService.GetAsync();
 
             if (newsArticle == null)
             {
-                return NotFound();
+                return NoContent();
             }
 
-            return newsArticle;
+            return Ok(newsArticle);
+        }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
+        {
+            var newsArticle = await newsArticleService.GetByIdAsync(id);
+
+            if (newsArticle == null)
+            {
+                return NoContent();
+            }
+
+            return Ok(newsArticle);
         }
 
         [HttpPut]
-        [Route("UpdateNewsArticle/{id}")]
+        [Route("UpdateById/{id}")]
 
-        public async Task<IActionResult> PutNewsArticle(int id, NewsArticle newsArticle)
+        public async Task<IActionResult> UpdateByIdAsync([FromRoute] int id, [FromBody] NewsArticle newsArticle)
         {
             if (id != newsArticle.Id)
             {
                 return BadRequest();
             }
 
-            await _context.UpdateAsync(newsArticle);
+            await newsArticleService.UpdateAsync(newsArticle);
 
             return Ok();
 
         }
 
         [HttpPost]
-        [Route("AddNewsArticle")]
-        public async Task<ActionResult<NewsArticle>> PostNewsArticle(NewsArticle newsArticle)
+        [Route("Add")]
+        public async Task<IActionResult> AddAsync([FromBody] NewsArticle newsArticle)
         {
-            await _context.AddAsync(newsArticle);
+            await newsArticleService.AddAsync(newsArticle);
             return Ok();
         }
 
         [HttpDelete]
-        [Route("DeleteNewsArticle/{id}")]
-        public async Task<IActionResult> DeleteNewsArticle(int id)
+        [Route("DeleteById/{id}")]
+        public async Task<IActionResult> DeleteByIdAsync([FromRoute] int id)
         {
-            await _context.DeleteByIdAsync(id);
+            await newsArticleService.DeleteByIdAsync(id);
             return Ok();
         }
     }

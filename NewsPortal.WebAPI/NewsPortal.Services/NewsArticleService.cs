@@ -9,6 +9,7 @@ namespace NewsPortal.Services
         Task AddAsync(NewsArticle request);
         Task UpdateAsync(NewsArticle request);
         Task DeleteByIdAsync(int id);
+        Task<List<NewsArticle>> GetAsync();
     }
 
     public class NewsArticleService : INewsArticleService
@@ -28,6 +29,11 @@ namespace NewsPortal.Services
         public async Task DeleteByIdAsync(int id)
         {
             await this.newsArticleRepository.DeleteByIdAsync(id).ConfigureAwait(false);
+        }
+
+        public async Task<List<NewsArticle>> GetAsync()
+        {
+           return await this.newsArticleRepository.GetAsync().ConfigureAwait(false);
         }
 
         public async Task<NewsArticle> GetByIdAsync(int id)

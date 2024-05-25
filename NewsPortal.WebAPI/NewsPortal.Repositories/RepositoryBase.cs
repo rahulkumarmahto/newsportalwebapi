@@ -5,6 +5,7 @@ namespace NewsPortal.Repositories
 {
     public interface IRepository<TEntity>
     {
+        Task<List<TEntity>> GetAsync();
         Task<TEntity> GetByIdAsync(int id);
         Task AddAsync(TEntity request);
         Task UpdateAsync(TEntity request);
@@ -17,10 +18,16 @@ namespace NewsPortal.Repositories
         private readonly NewsPortalWebAPIContext _context;
         private readonly DbSet<TEntity> dbSet;
 
-        protected RepositoryBase(NewsPortalWebAPIContext context)
+        public RepositoryBase(NewsPortalWebAPIContext context)
         {
             this._context = context;
             this.dbSet = context.Set<TEntity>();
+        }
+
+        public async Task<List<TEntity>> GetAsync()
+        {
+            var entity = await dbSet.ToListAsync().ConfigureAwait(false);
+            return entity;
         }
 
         public async Task<TEntity> GetByIdAsync(int id)

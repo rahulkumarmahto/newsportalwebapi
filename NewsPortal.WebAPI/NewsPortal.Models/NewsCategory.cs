@@ -1,15 +1,18 @@
-﻿namespace NewsPortal.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NewsPortal.Models
 {
-    public class NewsArticle
+    public class NewsCategory
     {
         public int Id { get; set; }
-        public required string Title { get; set; }
-        public required string Description { get; set; }
-        public int NewsCategoryId { get; set; }
+        public required string Name { get; set; }
         public required string CreatedBy { get; set; }
         public DateTime CreatedDatetime { get; set; }
         public string? ModifiedBy { get; set; }
         public DateTime? ModifiedDatetime { get; set; }
-
     }
 }
