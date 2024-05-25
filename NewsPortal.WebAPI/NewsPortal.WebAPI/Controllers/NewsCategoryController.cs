@@ -8,7 +8,7 @@ namespace NewsPortal.WebAPI.Controllers
     [ApiController]
     public class NewsCategoryController : ControllerBase
     {
-        private readonly INewsCategoryService  newsCategoryService;
+        private readonly INewsCategoryService newsCategoryService;
 
         public NewsCategoryController(INewsCategoryService newsCategoryService)
         {

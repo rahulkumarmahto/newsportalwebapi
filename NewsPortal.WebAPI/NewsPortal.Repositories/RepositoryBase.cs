@@ -37,8 +37,8 @@ namespace NewsPortal.Repositories
         }
         public async Task AddAsync(TEntity request)
         {
-           await dbSet.AddAsync(request).ConfigureAwait(false);
-           await _context.SaveChangesAsync();
+            await dbSet.AddAsync(request).ConfigureAwait(false);
+            await _context.SaveChangesAsync();
         }
         public async Task UpdateAsync(TEntity request)
         {
@@ -49,7 +49,7 @@ namespace NewsPortal.Repositories
         public async Task DeleteByIdAsync(int id)
         {
             var entity = await dbSet.FindAsync(id);
-            
+
             if (entity == null)
                 return;
 

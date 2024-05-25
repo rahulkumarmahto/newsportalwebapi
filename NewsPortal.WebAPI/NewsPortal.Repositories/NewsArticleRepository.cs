@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NewsPortal.Models;
 using NewsPortal.Repositories.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NewsPortal.Repositories
 {
@@ -85,7 +84,7 @@ namespace NewsPortal.Repositories
                 NewsCategoryId = a.NewsCategoryId,
                 NewsCategoryName = c.Name,
             })
-            .Where(x => string.IsNullOrEmpty(queryParameters.SearchText) 
+            .Where(x => string.IsNullOrEmpty(queryParameters.SearchText)
                 || x.Description.Contains(queryParameters.SearchText)
                 || x.Title.Contains(queryParameters.SearchText)
                 || x.NewsCategoryName.Contains(queryParameters.SearchText))

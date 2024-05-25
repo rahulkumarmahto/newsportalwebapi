@@ -1,9 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using NewsPortal.Repositories;
 using NewsPortal.Repositories.Data;
 using NewsPortal.Services;
-using NewsPortal.WebAPI.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 var corsOriginsAll = builder.Configuration.GetSection("CorsOrigins").Get<string[]>();

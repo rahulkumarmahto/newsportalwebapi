@@ -37,7 +37,7 @@ namespace NewsPortal.Services
 
         public async Task<NewsCategory> GetByIdAsync(int id)
         {
-           return await this.newsCategoryRepository.GetByIdAsync(id).ConfigureAwait(false);
+            return await this.newsCategoryRepository.GetByIdAsync(id).ConfigureAwait(false);
         }
 
         public async Task UpdateAsync(NewsCategory request)

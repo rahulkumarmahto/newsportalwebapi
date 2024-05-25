@@ -34,7 +34,7 @@ namespace NewsPortal.Services
 
         public async Task<List<NewsArticleResponse>> GetAsync()
         {
-           return await this.newsArticleRepository.GetAsync().ConfigureAwait(false);
+            return await this.newsArticleRepository.GetAsync().ConfigureAwait(false);
         }
 
         public async Task<NewsArticleResponse> GetByIdAsync(int id)

@@ -2,7 +2,7 @@
 
 namespace NewsPortal.Repositories
 {
-    public interface INewsArticleRepository 
+    public interface INewsArticleRepository
     {
         Task<List<NewsArticleResponse>> GetAsync();
         Task<NewsArticleResponse> GetByIdAsync(int id);
