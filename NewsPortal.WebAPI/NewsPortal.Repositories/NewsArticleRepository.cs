@@ -84,9 +84,15 @@ namespace NewsPortal.Repositories
                 ModifiedDatetime = a.ModifiedDatetime,
                 NewsCategoryId = a.NewsCategoryId,
                 NewsCategoryName = c.Name,
-            }).Where(x => string.IsNullOrEmpty(queryParameters.SearchText) || x.Description.Contains(queryParameters.SearchText)
+            })
+            .Where(x => string.IsNullOrEmpty(queryParameters.SearchText) 
+                || x.Description.Contains(queryParameters.SearchText)
                 || x.Title.Contains(queryParameters.SearchText)
-                || x.NewsCategoryName.Contains(queryParameters.SearchText)).ToListAsync();
+                || x.NewsCategoryName.Contains(queryParameters.SearchText))
+            .Skip(queryParameters.PageSize * (queryParameters.PageIndex - 1))
+            .Take(queryParameters.PageSize)
+            .OrderByDescending(x => x.CreatedDatetime)
+            .ToListAsync();
 
             int totalRecordCount = await context.NewsArticle.CountAsync().ConfigureAwait(false);
             int matchingRecordCount = data.Count;
