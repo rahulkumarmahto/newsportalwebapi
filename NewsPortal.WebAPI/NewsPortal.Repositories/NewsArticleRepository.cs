@@ -72,7 +72,7 @@ namespace NewsPortal.Repositories
 
         public async Task<PagedData<NewsArticleResponse>> GetByQueryParametersAsync(QueryParameters queryParameters)
         {
-            var data = await context.NewsArticle.Join(context.NewsCategory, a => a.NewsCategoryId, c => c.Id, (a, c) => new NewsArticleResponse()
+            var filteredArticles = context.NewsArticle.Join(context.NewsCategory, a => a.NewsCategoryId, c => c.Id, (a, c) => new NewsArticleResponse()
             {
                 CreatedBy = a.CreatedBy,
                 CreatedDateTime = a.CreatedDateTime,
@@ -87,14 +87,16 @@ namespace NewsPortal.Repositories
             .Where(x => string.IsNullOrEmpty(queryParameters.SearchText)
                 || x.Description.Contains(queryParameters.SearchText)
                 || x.Title.Contains(queryParameters.SearchText)
-                || x.NewsCategoryName.Contains(queryParameters.SearchText))
-            .OrderByDescending(x => x.CreatedDateTime)
+                || x.NewsCategoryName.Contains(queryParameters.SearchText));
+
+
+            var data= await filteredArticles.OrderByDescending(x => x.CreatedDateTime)
             .Skip(queryParameters.PageSize * (queryParameters.PageIndex - 1))
             .Take(queryParameters.PageSize)
             .ToListAsync().ConfigureAwait(false);
 
             int totalRecordCount = await context.NewsArticle.CountAsync().ConfigureAwait(false);
-            int matchingRecordCount = data.Count;
+            int matchingRecordCount = filteredArticles?.Count() ?? 0;
 
             PagedData<NewsArticleResponse> pagedData = new PagedData<NewsArticleResponse>()
             {
