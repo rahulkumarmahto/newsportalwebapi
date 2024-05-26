@@ -88,9 +88,9 @@ namespace NewsPortal.Repositories
                 || x.Description.Contains(queryParameters.SearchText)
                 || x.Title.Contains(queryParameters.SearchText)
                 || x.NewsCategoryName.Contains(queryParameters.SearchText))
+            .OrderByDescending(x => x.CreatedDateTime)
             .Skip(queryParameters.PageSize * (queryParameters.PageIndex - 1))
             .Take(queryParameters.PageSize)
-            .OrderByDescending(x => x.CreatedDateTime)
             .ToListAsync().ConfigureAwait(false);
 
             int totalRecordCount = await context.NewsArticle.CountAsync().ConfigureAwait(false);
